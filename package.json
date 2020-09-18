@@ -1,0 +1,23 @@
+{
+  "name": "island",
+  "version": "1.0.0",
+  "description": "音乐阅读软件",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ReginYuan/island.git"
+  },
+  "author": "ReginYuan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ReginYuan/island/issues"
+  },
+  "homepage": "https://github.com/ReginYuan/island#readme",
+  "dependencies": {
+    "koa": "^2.13.0"
+  },
+  "devDependencies": {}
+}
