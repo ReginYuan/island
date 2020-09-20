@@ -1,36 +1,38 @@
 const Koa = require("Koa");
-
+// 路由组件
+const Router = require("koa-router");
 //实例化应用程序对象
 const app = new Koa();
+const router = new Router();
 
-//应用中间件
-
-// 发送HTTP KOA  接受HTTP
-
-//函数
-// function test() {
-//     console.log('hello', 'ReginYuan');
-// }
-
-//将函数注册成中间件
-// app.use(test);
-
-app.use(async(ctx, next) => {
-    // await求值关键字  表达式  阻塞线程
-    await next();
-    const r = ctx.r;
-    console.log(r);
+// 查询数据
+router.get('/classic/latest', (ctx, next) => {
+    ctx.body = {
+        key: "ReginYuan"
+    };
 });
 
-app.use(async(ctx, next) => {
-    //axios所有的返回都是基于Promise
-    //next() 异步操作 对资源 读文件  发送http  操作数据库
-    const axios = require("axios");
-    const res = await axios.get("https://m.imooc.com/");
-    // ctx 上下文传值
-    ctx.r = res;
-    await next();
-});
+// 新增数据
+// router.post();
+// 更新数据
+// router.put();
+// 删除数据
+// router.delete();
+
+// 注册路由中间件
+app.use(router.routes());
+
+// app.use(async(ctx, next) => {
+//     // 获取路径
+//     console.log(ctx.path);
+//     // 获取请求方式
+//     console.log(ctx.method);
+//     // 获取请求路径以及请求方式
+//     if (ctx.path === "/classic/latest" && ctx.method === "GET") {
+//         // 向页面返回参数
+//         ctx.body = { key: "ReginYuan" };
+//     }
+// });
 
 // 设置监听端口
 app.listen(3000);
