@@ -7,6 +7,7 @@ const classic = require('./api/v1/classic');
 const app = new Koa();
 
 
+
 // 注册路由中间件
 app.use(book.routes());
 app.use(classic.routes());
