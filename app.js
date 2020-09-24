@@ -1,29 +1,18 @@
 // Koa组件
 const Koa = require("Koa");
-// require-directory  实现路由组件自动化插件
-const requireDirectory = require('require-directory');
 
-
+// 获取配置路由的文件
+const InitManager = require('./core/init');
 
 //实例化应用程序对象
 const app = new Koa();
-//路由自动化 设置路由的路径并调用注册中间件的方法
-const modules = requireDirectory(module, './api', {
-    visit: whenLoadModule
-});
 
-// 注册中中间件
-function whenLoadModule(obj) {
-    if (obj instanceof Router) {
-        app.use(obj.routes());
-    }
+// 获取绝对路径
+// process.cwd();
 
-}
+// 注册路由中间件,传递app对象
+InitManager.initCore(app);
 
-
-// 注册路由中间件
-app.use(book.routes());
-app.use(classic.routes());
 
 // 设置监听端口
 app.listen(3000);
