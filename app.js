@@ -1,12 +1,14 @@
 // Koa组件
 const Koa = require("Koa");
-
+const parser = require('koa-bodyparser');
 // 获取配置路由的文件
 const InitManager = require('./core/init');
 
 //实例化应用程序对象
 const app = new Koa();
 
+
+app.use(parser());
 // 获取绝对路径
 // process.cwd();
 
